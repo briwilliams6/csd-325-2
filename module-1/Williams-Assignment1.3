@@ -1,0 +1,25 @@
+def bottles_song(start_num):
+    # Loop from starting number down to 1
+    for i in range(start_num, 0, -1):
+        # Handle grammar for plural/singular
+        unit = "bottles" if i != 1 else "bottle"
+        
+        print(f"{i} {unit} of beer on the wall, {i} {unit} of beer.")
+        
+        next_val = i - 1
+        if next_val > 1:
+            print(f"Take one down and pass it around, {next_val} bottles of beer on the wall.")
+        elif next_val == 1:
+            print(f"Take one down and pass it around, 1 bottle of beer on the wall.")
+        else:
+            print(f"Take one down and pass it around, no more bottles of beer on the wall.")
+            print(f"Time to go to the store!")
+            exit=int(input("Press 0 to exit"))
+
+
+# User entry section
+try:
+    user_input = int(input("Enter starting number of bottles: "))
+    bottles_song(user_input)
+except ValueError:
+    print("Please enter a valid whole number.")
